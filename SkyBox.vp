@@ -1,0 +1,18 @@
+// Skybox Shader
+// Vertex Shader
+#version 130
+
+// Incoming per vertex... just the position
+in vec4 vVertex;
+
+// Texture Coordinate to fragment program
+varying vec3 vVaryingTexCoord;
+
+void main(void) 
+{
+    // Pass on the texture coordinates 
+    vVaryingTexCoord = gl_Vertex.xyz;
+    
+    // Don't forget to transform the geometry!
+    gl_Position    = ftransform();
+}
